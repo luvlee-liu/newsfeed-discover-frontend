@@ -18,7 +18,8 @@ const ArticleList = props => {
   }
 
   return (
-    <div>
+    <div className="">
+      <div className="card-group">
       {
         props.articles.map(article => {
           return (
@@ -26,7 +27,7 @@ const ArticleList = props => {
           );
         })
       }
-
+      </div>
       <ListPagination
         pager={props.pager}
         articlesCount={props.articlesCount}

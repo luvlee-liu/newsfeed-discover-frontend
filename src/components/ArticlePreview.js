@@ -6,7 +6,7 @@ import { ARTICLE_FAVORITED, ARTICLE_UNFAVORITED } from '../constants/actionTypes
 import moment from 'moment';
 
 const FAVORITED_CLASS = 'btn btn-sm btn-primary';
-const NOT_FAVORITED_CLASS = 'btn btn-sm btn-outline-primary';
+const NOT_FAVORITED_CLASS = 'btn btn-sm btn-primary';
 
 const mapDispatchToProps = dispatch => ({
   favorite: slug => dispatch({
@@ -35,63 +35,36 @@ const ArticlePreview = props => {
   };
 
   return (
-    <div className="article-preview">
-      {/* <div className="article-meta">
-        <a href={article.url}>
-          {article.source}
-        </a>
+    <div className="col-md-12">
+      <div className="card my-2">
 
-        <div className="info">
-          <Link className="author" to={`/@${article.author.username}`}>
-            {article.author.username}
-          </Link>
-          <span className="date">
-            {new Date(article.createdAt).toDateString()}
-          </span>
-        </div>
-
-        <div className="pull-xs-right">
-          <button className={favoriteButtonClass} onClick={handleClick}>
-            <i className="ion-heart"></i> {article.favoritesCount}
-          </button>
-        </div>
-      </div> */}
-      
-      <div to={`/article/${article.slug}`} className="preview-link">
-        <div className="row">
-          <div className="col-md-5">
-            <img className="img-thumbnail" src={article.urlToImage} alt={article.urlToImage} />
-          </div>
-          <div className="col-md-7">
-            <h4>{article.title}</h4>
-            <p>{article.description}</p>
-            {/* <span>Read more...</span> */}
-            <a href={article.url}>
-              read more on {article.source}
-            </a>
-            <div className="pull-xs-right">
-              <button className={favoriteButtonClass} onClick={handleClick}>
-                <i className="ion-heart"></i> {article.favoritesCount}
-              </button>
-            </div>
-            <Link to={`/article/${article.slug}`}>
-              <ul className="tag-list">
-                {
-                  article.tagList.map(tag => {
-                    return (
-                      <li className="tag-default tag-pill tag-outline" key={tag}>
-                        {tag}
-                      </li>
-                    )
-                  })
-                }
-              </ul>
-            </Link>
-            <div className="date">
+        <img className="card-img-top" src={article.urlToImage} alt={article.urlToImage} />
+        <div className="card-body">
+          <h4 className="card-title font-weight-bold">{article.title} </h4>
+          <span className="text-muted text-right">
               {moment(article.createdAt).fromNow()}
-            </div>
-              
-          </div>
+          </span>
+          <p className="card-text">{article.description}</p>
+          <a href={article.url} className="pl-0 btn btn-primary">read more on {article.source}</a>
+        </div>
+        
+        
+        <div className="card-footer text-muted">
+            <button className={favoriteButtonClass} onClick={handleClick}>
+              <i className="ion-heart"></i> {article.favoritesCount}
+            </button>
+            <Link to={`/article/${article.slug}`} className="text-muted link">Full text</Link>
+            <ul className="float-right mt-1 list-unstyled">
+              {
+                article.tagList.map(tag => {
+                  return (
+                    <li className="badge badge-pill badge-primary m-1" key={tag}>
+                      {tag}
+                    </li>
+                  )
+                })
+              }
+            </ul>
         </div>
       </div>
     </div>

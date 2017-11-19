@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const LoggedOutView = props => {
   if (!props.currentUser) {
     return (
-      <ul className="nav navbar-nav pull-xs-right">
+      <ul className="nav navbar-nav navbar-right">
 
         <li className="nav-item">
           <Link to="/" className="nav-link">
@@ -33,7 +33,7 @@ const LoggedOutView = props => {
 const LoggedInView = props => {
   if (props.currentUser) {
     return (
-      <ul className="nav navbar-nav pull-xs-right">
+      <ul className="nav navbar-nav ml-auto">
 
         <li className="nav-item">
           <Link to="/" className="nav-link">
@@ -52,16 +52,6 @@ const LoggedInView = props => {
             <i className="ion-gear-a"></i>&nbsp;Settings
           </Link>
         </li>
-
-        <li className="nav-item">
-          <Link
-            to={`/@${props.currentUser.username}`}
-            className="nav-link">
-            <img src={props.currentUser.image} className="user-pic bg-inverse" alt={props.currentUser.username} />
-            {props.currentUser.username}
-          </Link>
-        </li>
-
       </ul>
     );
   }
@@ -72,13 +62,12 @@ const LoggedInView = props => {
 class Header extends React.Component {
   render() {
     return (
-      <nav className="navbar navbar-light">
-        <div className="container">
-
-          <Link to="/" className="navbar-brand">
-            {this.props.appName.toLowerCase()}
-          </Link>
-
+      <nav className="navbar navbar-expand-md fixed-top navbar-dark bg-info">
+        <a className="navbar-brand" href="/">{this.props.appName.toUpperCase()}</a>
+        <button className="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="navbar-collapse collapse" id="navbar">
           <LoggedOutView currentUser={this.props.currentUser} />
 
           <LoggedInView currentUser={this.props.currentUser} />

@@ -28,23 +28,24 @@ const ListPagination = props => {
 
   return (
     <nav>
-      <ul className="pagination">
+      <ul className="pagination justify-content-center">
 
         {
-          range.map(v => {
-            const isCurrent = v === props.currentPage;
+          range.filter((v) => {
+            return v === props.currentPage + 1 || v === props.currentPage - 1;
+          })
+          .map((v) => {
+            const isOlder = v === props.currentPage + 1;
             const onClick = ev => {
               ev.preventDefault();
               setPage(v);
             };
             return (
               <li
-                className={ isCurrent ? 'page-item active' : 'page-item' }
+                className='page-item'
                 onClick={onClick}
                 key={v.toString()}>
-
-                <a className="page-link" href="">{v + 1}</a>
-
+                <a className="page-link" href="#">{isOlder ? '>>' : '<<'}</a>
               </li>
             );
           })

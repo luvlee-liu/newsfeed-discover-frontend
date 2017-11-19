@@ -1,4 +1,4 @@
-import Banner from './Banner';
+// import Banner from './Banner';
 import MainView from './MainView';
 import React from 'react';
 import Tags from './Tags';
@@ -45,28 +45,46 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div className="home-page">
-
-        <Banner token={this.props.token} appName={this.props.appName} />
-
-        <div className="container page">
+      <div className="">
+        {/* <Banner token={this.props.token} appName={this.props.appName} /> */}
+        <div className="fixed-bottom">
+          <div className="float-right mr-2 mb-1">
+            <a className="btn btn-outline-info btn-sm" href="#"><i className="ion-chevron-up"/></a>
+          </div>
+        </div>
+        <div className="container">
+          <div className="row my-4">
+            <p/>
+          </div>
+          <div className="">
+            <Tags
+              tags={this.props.tags}
+              onClickTag={this.props.onClickTag} />
+          </div>
           <div className="row">
+            <div className="col-md-3">
+                
+            </div>
             <MainView />
 
             <div className="col-md-3">
-              <div className="sidebar">
-
-                <p>Popular Tags</p>
-
-                <Tags
-                  tags={this.props.tags}
-                  onClickTag={this.props.onClickTag} />
-
-              </div>
-            </div>
+            </div> 
           </div>
         </div>
-
+      
+        <footer className="footer mb-4">
+          <div className="container py-4">
+            <div className="text-center text-primary">@ luvee.liu </div>
+            <div className="text-center">
+              <span className="small text-muted">Powered by</span>
+              <img height="25" src="https://cdn2.iconfinder.com/data/icons/nodejs-1/512/nodejs-512.png" alt="node.js"/>
+              <img height="20" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/280px-React-icon.svg.png" alt="react.js"/>
+              <img height="20" src="https://v4-alpha.getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="react.js"/>
+              <a href="https://newsapi.org/" className="ml-1 small text-muted">newsapi</a>
+              <a href="https://github.com/gothinkster/realworld" className="ml-1 small text-muted">realworld</a>
+            </div>
+          </div>
+        </footer>
       </div>
     );
   }

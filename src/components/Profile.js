@@ -123,9 +123,9 @@ class Profile extends React.Component {
         <div className="user-info">
           <div className="container">
             <div className="row">
-              <div className="col-xs-12 col-md-10 offset-md-1">
+              <div className="col-xs-12 col-md-10 offset-md-1 bg-info">
 
-                <img src={profile.image} className="user-img" alt={profile.username} />
+                <img src={profile.image} className="rounded-circle" alt={profile.username} height="50" width="50"/>
                 <h4>{profile.username}</h4>
                 <p>{profile.bio}</p>
 
