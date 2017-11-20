@@ -48,12 +48,12 @@ class Register extends React.Component {
     const username = this.props.username;
 
     return (
-      <div className="auth-page">
-        <div className="container page">
+      <div className="">
+        <div className="container">
           <div className="row">
-
-            <div className="col-md-6 offset-md-3 col-xs-12">
-              <h1 className="text-xs-center">Sign Up</h1>
+            <div className="col-md-3"/>
+            <div className="jumbotron col-md-6 offset-md-3 col-xs-12">
+              <h1 className="mt-4 text-xs-center">Sign Up</h1>
               <p className="text-xs-center">
                 <Link to="/login">
                   Have an account?

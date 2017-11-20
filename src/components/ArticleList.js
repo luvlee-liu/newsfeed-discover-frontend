@@ -16,14 +16,14 @@ const ArticleList = props => {
       </div>
     );
   }
-
+  const hasToken= props.token !== null;
   return (
     <div className="">
       <div className="card-group">
       {
         props.articles.map(article => {
           return (
-            <ArticlePreview article={article} key={article.slug} />
+            <ArticlePreview hasToken={hasToken} article={article} key={article.slug} />
           );
         })
       }

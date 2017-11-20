@@ -28,7 +28,7 @@ const ListPagination = props => {
 
   return (
     <nav>
-      <ul className="pagination justify-content-center">
+      <ul className="pagination justify-content-center mt-2">
 
         {
           range.filter((v) => {

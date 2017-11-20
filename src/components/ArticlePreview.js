@@ -4,6 +4,7 @@ import agent from '../agent';
 import { connect } from 'react-redux';
 import { ARTICLE_FAVORITED, ARTICLE_UNFAVORITED } from '../constants/actionTypes';
 import moment from 'moment';
+import {withRouter} from "react-router-dom";
 
 const FAVORITED_CLASS = 'btn btn-sm btn-primary';
 const NOT_FAVORITED_CLASS = 'btn btn-sm btn-primary';
@@ -27,16 +28,21 @@ const ArticlePreview = props => {
 
   const handleClick = ev => {
     ev.preventDefault();
-    if (article.favorited) {
-      props.unfavorite(article.slug);
-    } else {
-      props.favorite(article.slug);
+    if (props.hasToken) {
+      if (article.favorited) {
+        props.unfavorite(article.slug);
+      } else {
+        props.favorite(article.slug);
+      }
+    }
+    else {
+      props.history.push(`/login`);
     }
   };
 
   return (
-    <div className="col-md-12">
-      <div className="card my-2">
+    <div className="">
+      <div className="card mt-3">
 
         <img className="card-img-top" src={article.urlToImage} alt={article.urlToImage} />
         <div className="card-body">
@@ -45,7 +51,7 @@ const ArticlePreview = props => {
               {moment(article.createdAt).fromNow()}
           </span>
           <p className="card-text">{article.description}</p>
-          <a href={article.url} className="pl-0 btn btn-primary">read more on {article.source}</a>
+          <a href={article.url} target='_blank' className="pl-0 btn btn-primary">read more on {article.source}</a>
         </div>
         
         
@@ -71,4 +77,4 @@ const ArticlePreview = props => {
   );
 }
 
-export default connect(() => ({}), mapDispatchToProps)(ArticlePreview);
+export default connect(() => ({}), mapDispatchToProps)(withRouter(ArticlePreview));

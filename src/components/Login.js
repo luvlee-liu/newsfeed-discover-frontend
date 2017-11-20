@@ -41,12 +41,12 @@ class Login extends React.Component {
     const email = this.props.email;
     const password = this.props.password;
     return (
-      <div className="auth-page">
-        <div className="container page">
+      <div className="">
+        <div className="container">
           <div className="row">
-
-            <div className="col-md-6 offset-md-3 col-xs-12">
-              <h1 className="text-xs-center">Sign In</h1>
+            <div className="col-md-3"></div>
+            <div className="jumbotron col-md-6 offset-md-3 col-xs-12">
+              <h1 className="mt-4 text-xs-center">Sign In</h1>
               <p className="text-xs-center">
                 <Link to="/register">
                   Need an account?

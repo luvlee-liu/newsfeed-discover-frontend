@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const LoggedOutView = props => {
   if (!props.currentUser) {
     return (
-      <ul className="nav navbar-nav navbar-right">
+      <ul className="nav navbar-nav ml-auto">
 
         <li className="nav-item">
           <Link to="/" className="nav-link">
@@ -64,7 +64,7 @@ class Header extends React.Component {
     return (
       <nav className="navbar navbar-expand-md fixed-top navbar-dark bg-info">
         <a className="navbar-brand" href="/">{this.props.appName.toUpperCase()}</a>
-        <button className="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+        <button className="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbars" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="navbar-collapse collapse" id="navbar">
