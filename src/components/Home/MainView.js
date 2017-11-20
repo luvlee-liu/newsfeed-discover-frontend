@@ -45,10 +45,12 @@ const TagFilterTab = props => {
   if (!props.tag) {
     return null;
   }
-
+  const clickHandler = ev => {
+    ev.preventDefault();
+  };
   return (
     <li className="nav-item">
-      <a href="" className="nav-link active">
+      <a href="" className="nav-link active" onClick={clickHandler}>
         <i className="ion-pound"></i> {props.tag}
       </a>
     </li>

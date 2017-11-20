@@ -41,13 +41,13 @@ class Article extends React.Component {
     return (
       <div className="article-page">
 
-        <div className="banner">
+        <div className="">
           <div className="container">
-
-            <h1>{this.props.article.title}</h1>
-            <ArticleMeta
+            <p className="py-4"/>
+            <h2>{this.props.article.title}</h2>
+            {/* <ArticleMeta
               article={this.props.article}
-              canModify={canModify} />
+              canModify={canModify} /> */}
 
           </div>
         </div>

@@ -9,6 +9,7 @@ import {
   HOME_PAGE_UNLOADED,
   APPLY_TAG_FILTER
 } from '../../constants/actionTypes';
+import {Typeahead} from 'react-typeahead';
 
 const Promise = global.Promise;
 
@@ -44,6 +45,9 @@ class Home extends React.Component {
   }
 
   render() {
+    const optionSelected = tag => {
+      this.props.onClickTag(tag, page => agent.Articles.byTag(tag, page), agent.Articles.byTag(tag));
+    };
     return (
       <div className="">
         {/* <Banner token={this.props.token} appName={this.props.appName} /> */}
@@ -56,14 +60,26 @@ class Home extends React.Component {
           <div className="row my-4">
             <p/>
           </div>
+          <Typeahead
+            ref={(input) => { this.textInput = input; }}
+            options={this.props.tags}
+            maxVisible={25}
+            placeholder='search by tag'
+            showOptionsWhenEmpty={true}
+            onOptionSelected={optionSelected}
+            customClasses={{
+              input: 'form-control',
+              listItem: 'btn btn-raised btn-outline-primary m-1'
+            }}
+          />
           <div className="">
-            <Tags
-              tags={this.props.tags}
-              onClickTag={this.props.onClickTag} />
+            
           </div>
           <div className="row">
             <div className="col-md-3">
-                
+            {/* <Tags
+              tags={this.props.tags}
+              onClickTag={this.props.onClickTag} /> */}
             </div>
             <MainView />
 
