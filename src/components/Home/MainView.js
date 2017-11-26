@@ -73,10 +73,10 @@ const MainView = props => {
         <ul className="nav nav-tabs outline-active">
           <GlobalFeedTab tab={props.tab} onTabClick={props.onTabClick} />
           
-          <YourFeedTab
+          {/* <YourFeedTab
             token={props.token}
             tab={props.tab}
-            onTabClick={props.onTabClick} />
+            onTabClick={props.onTabClick} /> */}
 
           <TagFilterTab tag={props.tag} />
 

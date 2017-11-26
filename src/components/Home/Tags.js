@@ -17,7 +17,7 @@ const Tags = props => {
             return (
               <a
                 href=""
-                className="btn btn-raised btn-outline-primary m-1"
+                className="btn btn-raised btn-sm btn-outline-primary m-1"
                 key={tag}
                 onClick={handleClick}>
                 {tag}

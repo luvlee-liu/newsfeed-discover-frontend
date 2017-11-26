@@ -64,7 +64,7 @@ class Article extends React.Component {
                   this.props.article.tagList.map(tag => {
                     return (
                       <li
-                        className="tag-default tag-pill tag-outline"
+                        className="badge badge-pill badge-primary m-1"
                         key={tag}>
                         {tag}
                       </li>

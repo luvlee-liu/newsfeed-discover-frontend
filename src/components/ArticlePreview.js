@@ -46,7 +46,7 @@ const ArticlePreview = props => {
   const moreTagID = "more-tag-" + article.slug.replace('.', '-');
   const moreTagButton = (article.tagList.length > tagListLength) ? 
     <button className="btn btn-sm btn-primary float-right" data-toggle="collapse" data-target={"#"+moreTagID}>
-      <i className="ion-more"></i>
+      tags <i className="ion-android-more-vertical"></i>
     </button> : '';
 
   return (

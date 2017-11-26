@@ -69,21 +69,21 @@ class Home extends React.Component {
             onOptionSelected={optionSelected}
             customClasses={{
               input: 'form-control',
-              listItem: 'btn btn-raised btn-outline-primary m-1'
+              listItem: 'btn btn-raised btn-sm btn-outline-primary m-1'
             }}
           />
           <div className="">
             
           </div>
           <div className="row">
-            <div className="col-md-3">
+            <div className="col-md-2">
             {/* <Tags
               tags={this.props.tags}
               onClickTag={this.props.onClickTag} /> */}
             </div>
             <MainView />
 
-            <div className="col-md-3">
+            <div className="col-md-4">
             <p className="font-weight-bold text-uppercase text-center mt-2">Top Tags</p>
             <Tags
               tags={this.props.tags}
