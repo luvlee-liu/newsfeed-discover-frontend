@@ -83,7 +83,7 @@ class Home extends React.Component {
             </div>
             <MainView />
 
-            <div className="col-md-4">
+            <div className="col-lg-4">
             <p className="font-weight-bold text-uppercase text-center mt-2">Top Tags</p>
             <Tags
               tags={this.props.tags}
