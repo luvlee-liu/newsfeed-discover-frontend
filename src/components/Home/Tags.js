@@ -4,7 +4,7 @@ import agent from '../../agent';
 const Tags = props => {
   const tags = props.tags;
   if (tags) {
-    const topTagList = tags.length > 50 ? tags.slice(0,50): tags;
+    const topTagList = tags.length > 80 ? tags.slice(0,80): tags;
     return (
       <div className="tag-list">
         {
