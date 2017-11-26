@@ -53,7 +53,7 @@ class Home extends React.Component {
         {/* <Banner token={this.props.token} appName={this.props.appName} /> */}
         <div className="fixed-bottom">
           <div className="float-right mr-2 mb-1">
-            <a className="btn btn-outline-info btn-sm" href="#"><i className="ion-chevron-up"/></a>
+            <a className="btn btn-outline-info btn-lg" href="#"><i className="ion-chevron-up"/></a>
           </div>
         </div>
         <div className="container">
@@ -84,6 +84,10 @@ class Home extends React.Component {
             <MainView />
 
             <div className="col-md-3">
+            <p className="font-weight-bold text-uppercase text-center mt-2">Top Tags</p>
+            <Tags
+              tags={this.props.tags}
+              onClickTag={this.props.onClickTag} />
             </div> 
           </div>
         </div>

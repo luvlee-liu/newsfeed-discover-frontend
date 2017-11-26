@@ -45,7 +45,7 @@ const ListPagination = props => {
                 className='page-item'
                 onClick={onClick}
                 key={v.toString()}>
-                <a className="page-link" href="#">{isOlder ? '>>' : '<<'}</a>
+                <a className="page-link" href="#">{isOlder ? 'Older >>' : '<< Newer'}</a>
               </li>
             );
           })

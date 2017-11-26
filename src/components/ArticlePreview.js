@@ -6,7 +6,7 @@ import { ARTICLE_FAVORITED, ARTICLE_UNFAVORITED } from '../constants/actionTypes
 import moment from 'moment';
 import {withRouter} from "react-router-dom";
 
-const FAVORITED_CLASS = 'btn btn-sm btn-primary';
+const FAVORITED_CLASS = 'btn btn-sm btn-danger';
 const NOT_FAVORITED_CLASS = 'btn btn-sm btn-primary';
 
 const mapDispatchToProps = dispatch => ({
@@ -40,6 +40,15 @@ const ArticlePreview = props => {
     }
   };
 
+  const tagListLength = 6
+  const tagList = article.tagList.slice(0, tagListLength);
+  const moreTagList = article.tagList.slice(tagListLength);
+  const moreTagID = "more-tag-" + article.slug.replace('.', '-');
+  const moreTagButton = (article.tagList.length > tagListLength) ? 
+    <button className="btn btn-sm btn-primary float-right" data-toggle="collapse" data-target={"#"+moreTagID}>
+      <i className="ion-more"></i>
+    </button> : '';
+
   return (
     <div className="">
       <div className="card mt-3">
@@ -53,16 +62,17 @@ const ArticlePreview = props => {
           <p className="card-text">{article.description}</p>
           <a href={article.url} target='_blank' className="pl-0 btn btn-primary">read more on {article.source}</a>
         </div>
-        
-        
+
         <div className="card-footer text-muted">
             <button className={favoriteButtonClass} onClick={handleClick}>
               <i className="ion-heart"></i> {article.favoritesCount}
             </button>
             <Link to={`/article/${article.slug}`} className="text-muted link">Full text</Link>
-            <ul className="float-right mt-1 list-unstyled">
+            {moreTagButton}
+            <ul className="mt-1 list-unstyled">
+              <div>
               {
-                article.tagList.map(tag => {
+                tagList.map(tag => {
                   return (
                     <li className="badge badge-pill badge-primary m-1" key={tag}>
                       {tag}
@@ -70,6 +80,18 @@ const ArticlePreview = props => {
                   )
                 })
               }
+              </div>
+              <div id={moreTagID} className="collapse">
+              {
+                moreTagList.map(tag => {
+                  return (
+                    <li className="badge badge-pill badge-primary m-1" key={tag}>
+                      {tag}
+                    </li>
+                  )
+                })
+              }
+              </div>
             </ul>
         </div>
       </div>
