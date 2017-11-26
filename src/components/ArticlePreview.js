@@ -53,7 +53,7 @@ const ArticlePreview = props => {
     <div className="">
       <div className="card mt-3">
 
-        <img className="card-img-top" src={article.urlToImage} alt={article.urlToImage} />
+        <img className="card-img-top" src={article.urlToImage} alt='' />
         <div className="card-body">
           <h4 className="card-title font-weight-bold">{article.title} </h4>
           <span className="text-muted text-right">
