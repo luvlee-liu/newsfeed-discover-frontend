@@ -32,22 +32,34 @@ const ListPagination = props => {
 
         {
           range.filter((v) => {
-            return v === props.currentPage + 1 || v === props.currentPage - 1;
+            return v <= props.currentPage + 1 && v >= props.currentPage - 1;
           })
           .map((v) => {
             const isOlder = v === props.currentPage + 1;
+            const isCurrent = v === props.currentPage;
             const onClick = ev => {
               ev.preventDefault();
               setPage(v);
+              window.scrollTo(0, 0);
             };
-            return (
-              <li
-                className='page-item'
-                onClick={onClick}
-                key={v.toString()}>
-                <a className="page-link" href="#">{isOlder ? 'Older >>' : '<< Newer'}</a>
-              </li>
-            );
+            if (isCurrent) {
+              return (
+                <li className='disabled page-item'>
+                  <span className='page-link'>{(props.currentPage +1) * 10 } of {props.articlesCount}</span>
+                </li>
+              );
+              
+            }
+            else {
+              return (
+                <li
+                  className='page-item'
+                  onClick={onClick}
+                  key={v.toString()}>
+                  <a className="page-link" href="#">{isOlder ? 'Older »' : '« Newer'}</a>
+                </li>
+              );
+            }
           })
         }
 

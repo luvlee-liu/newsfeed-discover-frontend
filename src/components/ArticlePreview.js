@@ -6,7 +6,7 @@ import { ARTICLE_FAVORITED, ARTICLE_UNFAVORITED } from '../constants/actionTypes
 import moment from 'moment';
 import {withRouter} from "react-router-dom";
 
-const FAVORITED_CLASS = 'btn btn-sm btn-danger';
+const FAVORITED_CLASS = 'btn btn-sm btn-warning';
 const NOT_FAVORITED_CLASS = 'btn btn-sm btn-primary';
 
 const mapDispatchToProps = dispatch => ({
@@ -43,7 +43,7 @@ const ArticlePreview = props => {
   const tagListLength = 6
   const tagList = article.tagList.slice(0, tagListLength);
   const moreTagList = article.tagList.slice(tagListLength);
-  const moreTagID = "more-tag-" + article.slug.replace('.', '-');
+  const moreTagID = "more-tag-" + article.slug.replace(/\./g, '-');
   const moreTagButton = (article.tagList.length > tagListLength) ? 
     <button className="btn btn-sm btn-primary float-right" data-toggle="collapse" data-target={"#"+moreTagID}>
       tags <i className="ion-android-more-vertical"></i>
@@ -65,7 +65,7 @@ const ArticlePreview = props => {
 
         <div className="card-footer text-muted">
             <button className={favoriteButtonClass} onClick={handleClick}>
-              <i className="ion-heart"></i> {article.favoritesCount}
+              <i className="ion-star"></i> {article.favoritesCount}
             </button>
             <Link to={`/article/${article.slug}`} className="text-muted link">Full text</Link>
             {moreTagButton}

@@ -52,7 +52,7 @@ class Home extends React.Component {
       <div className="">
         {/* <Banner token={this.props.token} appName={this.props.appName} /> */}
         <div className="fixed-bottom">
-          <div className="float-right mr-2 mb-1">
+          <div className="float-right mr-4 mb-2">
             <a className="btn btn-outline-info btn-lg" href="#"><i className="ion-chevron-up"/></a>
           </div>
         </div>
@@ -100,6 +100,7 @@ class Home extends React.Component {
               <img height="25" src="https://cdn2.iconfinder.com/data/icons/nodejs-1/512/nodejs-512.png" alt="node.js"/>
               <img height="20" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/280px-React-icon.svg.png" alt="react.js"/>
               <img height="20" src="https://v4-alpha.getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="react.js"/>
+              <a href="http://ionicons.com/" className="ml-1"><i className='ion-ionic'/></a>
               <a href="https://newsapi.org/" className="ml-1 small text-muted">newsapi</a>
               <a href="https://github.com/gothinkster/realworld" className="ml-1 small text-muted">realworld</a>
             </div>
